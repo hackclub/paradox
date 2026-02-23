@@ -1,6 +1,8 @@
 // See https://svelte.dev/docs/kit/types#app.d.ts
 // for information about these interfaces
 
+import type { SeoData } from '$lib/seo';
+
 export interface HackClubUser {
 	id: string;
 	email: string;
@@ -17,6 +19,7 @@ declare global {
 		}
 		interface PageData {
 			user: HackClubUser | null;
+			seo?: SeoData;
 		}
 		// interface PageState {}
 		// interface Platform {}

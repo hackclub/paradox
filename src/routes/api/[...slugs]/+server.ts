@@ -1,16 +1,8 @@
 import { Elysia, t } from "elysia";
 import { openapi } from "@elysiajs/openapi";
-import { authPlugin } from "$lib/server/auth";
+import { authPlugin, HackClubUserSchema, MeResponseSchema } from "$lib/server/auth";
 import { drizzlePlugin } from "$lib/server/db/plugin";
 import { rsvpPlugin } from "$lib/server/rsvpPlugin";
-
-const HackClubUserSchema = t.Object({
-	id: t.String({ description: "Hack Club user ID" }),
-	email: t.String({ description: "User email", format: "email" }),
-	name: t.String({ description: "Display name" }),
-	username: t.Optional(t.String({ description: "Username" })),
-	avatar: t.Optional(t.String({ description: "Avatar URL" })),
-});
 
 const RsvpRecordSchema = t.Object({
 	id: t.Number({ description: "RSVP record ID" }),
@@ -46,11 +38,7 @@ const openapiConfig = {
 const base = new Elysia({ prefix: "/api" })
 	.model({
 		HackClubUser: HackClubUserSchema,
-		MeResponse: t.Object({
-			user: t.Union([HackClubUserSchema, t.Null()], {
-				description: "Authenticated user or null if not authenticated",
-			}),
-		}),
+		MeResponse: MeResponseSchema,
 		RsvpRecord: RsvpRecordSchema,
 		RsvpSuccessResponse: t.Object({
 			success: t.Literal(true, { description: "Always true on success" }),
