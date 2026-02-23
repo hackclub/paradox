@@ -10,6 +10,20 @@ export interface HackClubUser {
 	avatar?: string;
 }
 
+export const HackClubUserSchema = t.Object({
+	id: t.String({ description: "Hack Club user ID" }),
+	email: t.String({ description: "User email", format: "email" }),
+	name: t.String({ description: "Display name" }),
+	username: t.Optional(t.String({ description: "Username" })),
+	avatar: t.Optional(t.String({ description: "Avatar URL" })),
+});
+
+export const MeResponseSchema = t.Object({
+	user: t.Union([HackClubUserSchema, t.Null()], {
+		description: "Authenticated user or null if not authenticated",
+	}),
+});
+
 export const authPlugin = new Elysia({ prefix: "/auth" })
 	.get("/login", ({ redirect }) => {
 		const params = new URLSearchParams({
@@ -109,7 +123,7 @@ export const authPlugin = new Elysia({ prefix: "/auth" })
 		return { user: (await res.json()) as HackClubUser };
 	}, {
 		response: {
-			200: "MeResponse",
+			200: MeResponseSchema,
 		},
 		detail: {
 			tags: ["Auth"],
