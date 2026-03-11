@@ -1,0 +1,41 @@
+steps:
+  - key: welcome_1
+    type: dialogue
+    prompt: "Hi there! I'm Soup!"
+
+  - key: welcome_2
+    type: dialogue
+    prompt: "And I'm hungry"
+
+  - key: welcome_3
+    type: dialogue
+    prompt: 'Build hardware projects to get koi fish, & feed me!'
+
+  - key: welcome_4
+    type: dialogue
+    prompt: "In exchange, I'll give you prizes! Maybe an invite to our base in Shenzhen..."
+
+  - key: how_heard
+    type: multi_choice
+    prompt: 'How did you hear about Fallout?'
+    options:
+      - 'Friends/Family'
+      - 'Instagram/Youtube'
+      - 'Hack Club Site'
+      - 'Slack'
+      - 'Email'
+      - 'School'
+      - 'Other'
+
+  - key: experience
+    type: single_choice
+    prompt: "What's your hardware experience?"
+    options:
+      - "I'm new to hardware!"
+      - "I've made guided projects!"
+      - "I've made projects beyond guides!"
+      - 'I live and breathe hardware'
+
+  - key: timelapse_reminder
+    type: dialogue
+    prompt: 'Remember to timelapse your work!'

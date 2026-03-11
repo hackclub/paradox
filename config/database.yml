@@ -1,0 +1,17 @@
+# PostgreSQL configuration
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 8 } %>
+
+development:
+  <<: *default
+  url: <%= ENV["DATABASE_URL"] || "postgresql://postgres:starter@localhost:5432/fallout_development" %>
+
+test:
+  <<: *default
+  url: <%= ENV["DATABASE_URL"] || "postgresql://postgres:starter@localhost:5432/fallout_test" %>
+
+production:
+  <<: *default
+  url: <%= ENV["DATABASE_URL"] %>

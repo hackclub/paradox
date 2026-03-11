@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "Fallout" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon">
+    <link rel="icon" href="/soup.png" type="image/png">
+    <link rel="apple-touch-icon" href="/soup.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" media="print" onload="this.media='all'">
+
+    <%= vite_client_tag %>
+    <%= vite_react_refresh_tag %>
+    <%= vite_stylesheet_tag "application" %>
+    <%= vite_typescript_tag "inertia" %>
+    <%= inertia_ssr_head %>
+    <%= Sentry.get_trace_propagation_meta.html_safe %>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>
