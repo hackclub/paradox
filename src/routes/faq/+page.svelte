@@ -106,120 +106,121 @@
     </button>
 
     <div
-        class="opened-book absolute bottom-0 left-1/2 flex-row"
-        class:flex={showPages}
+        class="opened-book-wrapper absolute bottom-0 left-1/2 -translate-x-1/2"
         class:hidden={!showPages}
         bind:this={bookOpened}
     >
-        <div
-            class="bg-[#EDEAE1] min-h-[20rem] h-[50rem] min-w-[20rem] w-[38rem] max-w-[42rem] border-r-2 border-black rounded-lg p-10"
-        >
-            <div class="h-4 w-[100%] bg-black"></div>
-            <div class="h-1 w-[100%] bg-black mt-2"></div>
-            <h1 style="font-family: 'Bethany, serif'" class="text-8xl">FAQ</h1>
-            <div class="h-1 w-[30%] bg-black mt-6"></div>
-            {#each faqItems as item, i}
-                    <button
-                            class="q text-3xl mt-6 text-left hover:font-bold"
-                            onclick={() => (selected = i)}
-                            class:under={selected === i}
+        <div class="opened-book flex flex-row">
+            <div
+                class="bg-[#EDEAE1] min-h-[20rem] h-[50rem] min-w-[20rem] w-[38rem] max-w-[42rem] border-r-2 border-black rounded-lg p-10"
+            >
+                <div class="h-4 w-[100%] bg-black"></div>
+                <div class="h-1 w-[100%] bg-black mt-2"></div>
+                <h1 style="font-family: 'Bethany, serif'" class="text-8xl">FAQ</h1>
+                <div class="h-1 w-[30%] bg-black mt-6"></div>
+                {#each faqItems as item, i}
+                        <button
+                                class="q text-3xl mt-6 text-left hover:font-bold"
+                                onclick={() => (selected = i)}
+                                class:under={selected === i}
+                                style="font-family: 'Bethany', serif"
+                        >
+                            {item.q}
+                        </button>
+                        <br>
+                        {#if item.q === "Do I need to have any prior experience?"}<br>{/if}
+
+                {/each}
+                <div class="h-1 w-[30%] bg-black mt-6"></div>
+                <div class="flex flex-row items-center gap-3 mt-16">
+                    <img
+                        src="images/faq/faq-logo.png"
+                        alt="Paradox Logo"
+                    />
+                    <img
+                            src="images/faq/faq-star.png"
+                            alt="Star"
+                            class="object-contain"
+                    />
+                    <h1
+                        class="text-4xl"
+                        style="font-family: 'Bethany', serif"
+                    >
+                        Hack Club 2026
+                    </h1>
+                </div>
+            </div>
+            <div class="bg-[#EDEAE1] min-h-[20rem] h-[50rem] min-w-[20rem] w-[38rem] max-w-[42rem] rounded-lg p-10 flex flex-col">
+                <div class="flex flex-row items-center">
+                    <div class="flex flex-col items-center w-full">
+                        <div class="h-4 w-[75%] bg-black"></div>
+                        <div class="h-1 w-[75%] bg-black mt-2"></div>
+                    </div>
+                    <h1
+                            class="text-6xl"
                             style="font-family: 'Bethany', serif"
                     >
-                        {item.q}
-                    </button>
-                    <br>
-                    {#if item.q === "Do I need to have any prior experience?"}<br>{/if}
-
-            {/each}
-            <div class="h-1 w-[30%] bg-black mt-6"></div>
-            <div class="flex flex-row items-center gap-3 mt-16">
-                <img
-                    src="images/faq/faq-logo.png"
-                    alt="Paradox Logo"
-                />
-                <img
-                        src="images/faq/faq-star.png"
-                        alt="Star"
-                        class="object-contain"
-                />
-                <h1
-                    class="text-4xl"
-                    style="font-family: 'Bethany', serif"
-                >
-                    Hack Club 2026
-                </h1>
-            </div>
-        </div>
-        <div class="bg-[#EDEAE1] min-h-[20rem] h-[50rem] min-w-[20rem] w-[38rem] max-w-[42rem] rounded-lg p-10 flex flex-col">
-            <div class="flex flex-row items-center">
-                <div class="flex flex-col items-center w-full">
-                    <div class="h-4 w-[75%] bg-black"></div>
-                    <div class="h-1 w-[75%] bg-black mt-2"></div>
-                </div>
-                <h1
-                        class="text-6xl"
-                        style="font-family: 'Bethany', serif"
-                >
-                    ANSWER
-                </h1>
-                <div class="flex flex-col items-center w-full">
-                    <div class="h-4 w-[75%] bg-black"></div>
-                    <div class="h-1 w-[75%] bg-black mt-2"></div>
-                </div>
-            </div>
-
-            <div class="h-1 w-[100%] bg-black mt-6"></div>
-
-            <div class="flex-1 overflow-y-auto">
-                <h1
-                    class="text-3xl mt-14"
-                    style="font-family: 'Bethany', serif">
-                    {faqItems[selected].a}
-                </h1>
-            </div>
-
-            <footer class="flex flex-col items-end justify-end mt-auto">
-                <div class="h-1 w-[100%] bg-black"></div>
-
-                <div class="flex flex-row items-center w-full mt-4">
-                    <div class="flex-col flex w-full justify-between">
-                        <p
-                                class="text-lg"
-                                style="font-family: 'Bethany', serif"
-                        >
-                            produced by
-                        </p>
-                        <a
-                                href="https://hackclub.com"
-                                class="text-3xl"
-                                style="font-family: 'Bethany', serif"
-                        >
-                            Hack Club
-                        </a>
+                        ANSWER
+                    </h1>
+                    <div class="flex flex-col items-center w-full">
+                        <div class="h-4 w-[75%] bg-black"></div>
+                        <div class="h-1 w-[75%] bg-black mt-2"></div>
                     </div>
-                    <div class="flex-col w-full flex items-end justify-end">
-                        <p
-                                class="text-lg"
-                                style="font-family: 'Bethany', serif"
-                        >
-                            directed by teens
-                        </p>
-                        <div class="flex flex-row">
+                </div>
+
+                <div class="h-1 w-[100%] bg-black mt-6"></div>
+
+                <div class="flex-1 overflow-y-auto">
+                    <h1
+                        class="text-3xl mt-14"
+                        style="font-family: 'Bethany', serif">
+                        {faqItems[selected].a}
+                    </h1>
+                </div>
+
+                <footer class="flex flex-col items-end justify-end mt-auto">
+                    <div class="h-1 w-[100%] bg-black"></div>
+
+                    <div class="flex flex-row items-center w-full mt-4">
+                        <div class="flex-col flex w-full justify-between">
                             <p
+                                    class="text-lg"
+                                    style="font-family: 'Bethany', serif"
+                            >
+                                produced by
+                            </p>
+                            <a
+                                    href="https://hackclub.com"
                                     class="text-3xl"
                                     style="font-family: 'Bethany', serif"
                             >
-                                for teens
+                                Hack Club
+                            </a>
+                        </div>
+                        <div class="flex-col w-full flex items-end justify-end">
+                            <p
+                                    class="text-lg"
+                                    style="font-family: 'Bethany', serif"
+                            >
+                                directed by teens
                             </p>
-                            <img
-                                    src="/images/faq/faq-star.png"
-                                    class="ml-2"
-                                    alt="Star"
-                            />
+                            <div class="flex flex-row">
+                                <p
+                                        class="text-3xl"
+                                        style="font-family: 'Bethany', serif"
+                                >
+                                    for teens
+                                </p>
+                                <img
+                                        src="/images/faq/faq-star.png"
+                                        class="ml-2"
+                                        alt="Star"
+                                />
+                            </div>
                         </div>
                     </div>
-                </div>
-            </footer>
+                </footer>
+            </div>
         </div>
     </div>
 
@@ -241,7 +242,7 @@
 
 
     .opened-book {
-        transform: translateX(-50%) scale(var(--opened-book-scale));
+        transform: scale(var(--opened-book-scale));
         transform-origin: center bottom;
     }
 
