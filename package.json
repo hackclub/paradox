@@ -30,7 +30,7 @@
   "dependencies": {
     "@elysiajs/openapi": "^1.4.14",
     "drizzle-orm": "^0.44.7",
-    "elysia": "^1.4.25",
+    "elysia": "^1.4.28",
     "gsap": "^3.14.2",
     "lenis": "^1.3.21",
     "postgres": "^3.4.8"
